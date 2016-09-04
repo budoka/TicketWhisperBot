@@ -1,0 +1,36 @@
+{
+  "name": "ticketwhisperbot",
+  "version": "1.0.0",
+  "description": "A telegram bot made with Node.",
+  "main": "index.js",
+  "scripts": {
+    "windows:dev": "set NODE_ENV=dev&& node index.js",
+    "windows:prod": "set NODE_ENV=prod&& node index.js",
+    "unix:dev": "NODE_ENV=dev&& node index.js",
+    "unix:prod": "NODE_ENV=prod&& node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/budoka/TicketWhisperBot.git"
+  },
+  "keywords": [
+    "telegram",
+    "bot",
+    "ticket",
+    "whisper",
+    "festival"
+  ],
+  "author": "Facundo Vazquez",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/budoka/TicketWhisperBot/issues"
+  },
+  "homepage": "https://github.com/budoka/TicketWhisperBot#readme",
+  "dependencies": {
+    "dotenv": "^2.0.0",
+    "express": "^4.14.0",
+    "mongoose": "^4.6.0",
+    "node-telegram-bot-api": "^0.23.3",
+    "socket.io": "^1.4.8"
+  }
+}
