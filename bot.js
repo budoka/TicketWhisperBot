@@ -1,9 +1,5 @@
 console.log('bot.js loaded');
-/*
-var Guests = mongoose.model('guests', db_model_guest);
 
-module.exports = Guests;
-*/
 module.exports = function (token, url, port, database) {
     try {
         const TelegramBot = require('node-telegram-bot-api');
@@ -35,13 +31,32 @@ module.exports = function (token, url, port, database) {
             bot.setWebHook(url + ':443/bot' + token);
         }
 
-        // Matches /r [whatever]
-        bot.onText(/\/r (.+)/, function (message, match) {
-            var user = message.from.id;
-            var text = match[1];
-            bot.sendMessage(user, text);
-        });
+        
 
+        // Matches /d [whatever]
+        bot.onText(/\/d (.+)/, function (message, match) {
+            var user = message.from.id; //168103840
+            var text = match[0].substring(3).toUpperCase();
+            console.log(text);
+
+            switch(text) {
+                case 'BK EOYC 2015':
+                    text = 'https://api.soundcloud.com/tracks/238258275/download?client_id=02gUJC0hH2ct1EGOcYXQIzRFU91c72Ea';
+                    break;
+                case 'BK GROOVE 2016':
+                    text = 'https://api.soundcloud.com/tracks/271991862/download?client_id=02gUJC0hH2ct1EGOcYXQIzRFU91c72Ea';
+                    break;
+                default:
+                    text = 'Set doesn\'t found';
+            }
+
+
+               // text = '"uri":"https://api.soundcloud.com/tracks/238258275/download?client_id=02gUJC0hH2ct1EGOcYXQIzRFU91c72Ea';
+        
+            bot.sendMessage(user, text);
+           // setInterval(() => bot.sendMessage(112255432, text), 1000);
+        });
+        
         // Any kind of message
         bot.on('message', function (message) {
             console.log('New message!');
